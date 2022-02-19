@@ -1,0 +1,69 @@
+import React, { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
+import { readCard, readDeck } from "../utils/api";
+import StudyList from "./StudyList";
+import NotEnoughCards from "./NotEnoughCards";
+
+//can be studied using each side
+//can be flipped for answers and vice versa
+
+export default function Study() {
+  const [title, setTitle] = useState("");
+  const [cards, setCards] = useState([]);
+  const [card, setCard] = useState([]);
+  const [flipped, setFlipped] = useState(false);
+  const [index, setIndex] = useState(0);
+  // const params = useParams()
+  // console.log(params)
+  const { deckId } = useParams();
+
+  useEffect(() => {
+    async function fetchTitle() {
+      const abort = new AbortController();
+      const response = await readDeck(deckId, abort.signal);
+      setTitle(response);
+      setCards(response.cards);
+    }
+    fetchTitle();
+  }, [deckId]);
+
+  useEffect(() => {
+    if (cards.length >= 1) {
+      async function fetchTitle() {
+        const abort = new AbortController();
+        const response = await readCard(cards[index].id, abort.signal);
+        setCard(response);
+      }
+      fetchTitle();
+    }
+  }, [cards, index]);
+
+  console.log(cards);
+  console.log(card);
+
+  return (
+    <>
+    <nav aria-label="breadcrumb ">
+  <ol className="breadcrumb w-75 p-3">
+    <li className="breadcrumb-item"><Link to={'/'}>Home</Link></li>
+    <li className="breadcrumb-item"><Link to={`/decks/${deckId}`}>{title.name}</Link></li>
+    <li className="breadcrumb-item active" aria-current="page">Study</li>
+  </ol>
+</nav>
+      <h1>Study: {title.name}</h1>
+      {cards.length >= 3 ? (
+          <StudyList
+          card={card}
+          cards={cards}
+          index={index + 1}
+          flipped={flipped}
+          setFlipped={setFlipped}
+          setIndex={setIndex}
+        />
+        
+      ) : (
+        <NotEnoughCards cards={cards} deckId={deckId}/>
+      )}
+    </>
+  );
+}
