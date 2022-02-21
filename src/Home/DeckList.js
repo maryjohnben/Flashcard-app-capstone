@@ -10,7 +10,6 @@ export default function DeckList({ deck }) {
   //TODO: handle all the buttons to appropriate destinations
 
   function handleDelete(id) {
-    console.log(id);
     const result = window.confirm(
       "Delete the deck? \n \n You will not be able to recover it."
     );

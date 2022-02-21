@@ -8,19 +8,17 @@ import { deleteCard } from "../utils/api";
 export default function CardView({ card, url }) {
   const [deleted, setDeleted] = useState(false);
   const history = useHistory();
-  const [cardId, setCardId] = useState('')
-
+  const [cardId, setCardId] = useState("");
 
   const handleDelete = async (id) => {
     const result = window.confirm(
       "Delete the card? \n \n You will not be able to recover it."
-      );
-      if (result) {
-        setDeleted(true);
-        setCardId(id)
-      }
-    };
-    // console.log(cardId);
+    );
+    if (result) {
+      setDeleted(true);
+      setCardId(id);
+    }
+  };
 
   useEffect(() => {
     if (deleted) {

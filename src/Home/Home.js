@@ -15,7 +15,6 @@ export default function Home() {
     }
     deckApi();
   }, []);
-  console.log(decks);
 
   return (
     <div style={{ marginBottom: "50px" }}>

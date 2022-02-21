@@ -20,7 +20,6 @@ export default function EditCard() {
   // console.log(params);
   const { cardId } = useParams();
   const { deckId } = useParams();
-  console.log(cardId);
   const history = useHistory();
 
   useEffect(() => {
@@ -28,7 +27,6 @@ export default function EditCard() {
       const abort = new AbortController();
       const response = await readDeck(deckId, abort.signal);
       setTitle(response);
-      console.log(response);
     }
     fetchTitle();
   }, [deckId]);
@@ -37,7 +35,6 @@ export default function EditCard() {
     async function cardfetch() {
       const abort = new AbortController();
       const response = await readCard(cardId, abort.signal);
-      console.log(response);
       setFormData(response);
     }
     cardfetch();
@@ -58,7 +55,6 @@ export default function EditCard() {
       async function cardUpdate() {
         const abort = new AbortController();
         const response = await updateCard(formData, abort.signal);
-        console.log(response);
         history.push(`/decks/${deckId}`);
         return response;
       }

@@ -25,8 +25,6 @@ export default function EditDeck() {
       const response = await readDeck(deckId, abort.signal);
       setFormData(response);
       setDeck(response);
-      //   console.log(response);
-      // console.log(formData)
       return response;
     }
     fetchEdit();
@@ -35,25 +33,24 @@ export default function EditDeck() {
   const handleCancel = () => {
     history.push(`/decks/${deckId}`);
   };
-
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     setSubmitted(true);
   };
 
-  // console.log(formData);
-  //changes saved
+ 
   useEffect(() => {
     if (submitted) {
       async function updates() {
-        history.push(`/decks/${deckId}`);
         const abort = new AbortController();
-        console.log(deckId);
-        return await updateDeck(formData, abort.signal);
+        history.push(`/decks/${deckId}`);
+        const response = await updateDeck(formData, abort.signal);
+        return response
       }
       updates();
     }
-  }, [submitted]);
+  }, [submitted, formData, history, deckId]);
 
   return (
     <div>

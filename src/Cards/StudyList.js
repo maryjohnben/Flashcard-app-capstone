@@ -11,13 +11,15 @@ export default function StudyList({
   setFlipped,
   setIndex,
 }) {
+  
   const history = useHistory();
   console.log(index);
 
   const handleFlip = () => {
     setFlipped(true);
   };
-
+//index is newly set to the similar value that is passed through the prop. Ex. here index + 1 so the prop
+//index here is always 1 above the original index
   const handleNext = () => {
     if (cards.length === index) {
       setIndex(index);
@@ -25,13 +27,13 @@ export default function StudyList({
         "Restart cards? \n \n Click 'cancel' to return to home page."
       );
       if (result) {
-        setIndex(0);
+        setIndex(0); //set to the first index
         setFlipped(false);
       } else {
         history.push("/");
       }
     } else {
-      setIndex(index);
+      setIndex(index); //index is set to similar of passed in prop
       setFlipped(false);
     }
   };

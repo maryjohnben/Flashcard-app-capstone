@@ -8,12 +8,11 @@ import CardView from "../Cards/CardView";
 //and delete deck functionality. The cards inside particular deck can be deleted as well
 //this is made possible through card view
 export default function DeckView() {
+
   const [deck, setDeck] = useState([]);
   const [cards, setCards] = useState([]);
   const { deckId } = useParams();
-  //   console.log(deckId);
   const { url } = useRouteMatch();
-  //   console.log(url)
   const history = useHistory();
 
   useEffect(() => {
@@ -28,7 +27,6 @@ export default function DeckView() {
   console.log(cards);
 
   const handleDelete = async (id) => {
-    console.log(id);
     const result = window.confirm(
       "Delete the deck? \n \n You will not be able to recover it."
     );
@@ -39,7 +37,7 @@ export default function DeckView() {
       return await deleteDeck(id, abortController.signal);
     }
   };
-  //   console.log(deck.cards)
+  
   return (
     <div className="deck" style={{ marginBottom: "100px" }}>
       <nav aria-label="breadcrumb ">

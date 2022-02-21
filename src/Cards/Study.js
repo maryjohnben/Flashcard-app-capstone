@@ -8,13 +8,13 @@ import NotEnoughCards from "./NotEnoughCards";
 //can be flipped for answers and vice versa
 
 export default function Study() {
+
   const [title, setTitle] = useState("");
   const [cards, setCards] = useState([]);
   const [card, setCard] = useState([]);
   const [flipped, setFlipped] = useState(false);
   const [index, setIndex] = useState(0);
   // const params = useParams()
-  // console.log(params)
   const { deckId } = useParams();
 
   useEffect(() => {
@@ -29,17 +29,14 @@ export default function Study() {
 
   useEffect(() => {
     if (cards.length >= 1) {
-      async function fetchTitle() {
+      async function fetchCard() {
         const abort = new AbortController();
         const response = await readCard(cards[index].id, abort.signal);
         setCard(response);
       }
-      fetchTitle();
+      fetchCard();
     }
   }, [cards, index]);
-
-  console.log(cards);
-  console.log(card);
 
   return (
     <>

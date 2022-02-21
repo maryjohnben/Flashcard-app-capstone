@@ -26,17 +26,14 @@ export default function NewDeck() {
   useEffect(() => {
     if (submitted) {
       async function create() {
-        // history.go()
         const abort = new AbortController();
         const response = await createDeck(formData, abort.signal);
         history.push(`/decks/${response.id}`);
-        console.log(response);
         return response;
       }
       create();
     }
-  }, [submitted]);
-  //   console.log(formData);
+  }, [submitted, formData, history]);
 
   return (
     <>

@@ -12,21 +12,18 @@ export default function NewCard() {
     back: "",
   };
   const { deckId } = useParams();
-  // console.log(deckId)
 
   const history = useHistory();
 
   const [title, setTitle] = useState({});
   const [formData, setFormData] = useState({ ...initial });
   const [submitted, setSubmitted] = useState(false);
-  console.log(formData);
 
   useEffect(() => {
     async function fetchTitle() {
       const abort = new AbortController();
       const response = await readDeck(deckId, abort.signal);
       setTitle(response);
-      console.log(response);
     }
     fetchTitle();
   }, [deckId]);
@@ -45,16 +42,12 @@ export default function NewCard() {
       async function creates() {
         const abort = new AbortController();
         const response = await createCard(deckId, formData, abort.signal);
-        console.log(response);
-        setFormData({ ...initial });
         history.go();
         return response;
       }
       creates();
     }
-  }, [submitted]);
-
-  // console.log(title)
+  }, [submitted, deckId, history, formData]);
 
   return (
     <div className="w-75 p-3">
