@@ -16,8 +16,7 @@ export default function EditCard() {
   const [formData, setFormData] = useState({ ...initial });
   const [title, setTitle] = useState({});
   const [submitted, setSubmitted] = useState(false);
-  // const params = useParams()
-  // console.log(params);
+
   const { cardId } = useParams();
   const { deckId } = useParams();
   const history = useHistory();

@@ -24,7 +24,6 @@ export default function DeckView() {
     }
     fetchDeck();
   }, [deckId]);
-  console.log(cards);
 
   const handleDelete = async (id) => {
     const result = window.confirm(

@@ -12,7 +12,6 @@ export default function StudyList({
   setIndex,
 }) {
   const history = useHistory();
-  console.log(index);
 
   const handleFlip = () => {
     setFlipped(true);
