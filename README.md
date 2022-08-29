@@ -1,15 +1,27 @@
 # Flashcard-app-capstone
 
-- Inteactive flashcard app students and teachers can use. 
+### Overview
 
-- Ability to let users create flashcard decks and cards in each deck.
+- Inteactive flashcard app students and teachers can utilize. 
 
-- Able to create, edit, delete, and study deck of cards.
+- Ability to let users create flashcard decks and add cards as necessary in each deck.
 
-- Tech: Javascript, React, React Hooks, HTML, CSS BootStrap
+- Let the user to create, update, delete, and study the deck of cards (CRUD).
+
+### Technology Used:  
+
+- Javascript
+- React 
+- React Hooks
+- HTML5 
+- CSS 3
+- CSS BootStrap
+- Jest
+- json
 
 
-## Installation
+### Installation:
+
 - <p> <strong>Clone</strong> this repository.</p>
 - <p> <strong>cd</strong> into the newly created directory.</p>
 - <p>Run <strong>npm install</strong>.</p>
