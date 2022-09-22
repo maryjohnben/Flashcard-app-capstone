@@ -4,7 +4,7 @@
 
 - Inteactive flashcard app students and teachers can utilize. 
 
-- Ability to let users create flashcard decks and add cards as necessary in each deck.
+- Ability to let each user create flashcard decks and add cards to the deck as necessary.
 
 - Let the user to create, update, delete, and study the deck of cards (CRUD).
 
