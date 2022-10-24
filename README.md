@@ -8,6 +8,8 @@
 
 - Let the user to create, update, delete, and study the deck of cards (CRUD).
 
+- This is a frontend prioritized project and utilizes frontend development tools such as React to acheive expected results.
+
 ### Technology Used:  
 
 - Javascript
