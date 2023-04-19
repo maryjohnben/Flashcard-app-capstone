@@ -16,12 +16,13 @@
 - React 
 - React Hooks
 - HTML5 
-- CSS 3
+- CSS3
 - CSS BootStrap
+- React Bootstrap
 - Jest
 - json
 
-
+<p> This is a local project and needs to be downloaded/cloned inorder to view the functionalities. </p>
 ### Installation:
 
 - <p> <strong>Clone</strong> this repository.</p>
