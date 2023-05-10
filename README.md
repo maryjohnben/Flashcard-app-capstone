@@ -17,12 +17,13 @@
 - React Hooks
 - HTML5 
 - CSS3
-- CSS BootStrap
+- CSS Bootstrap
 - React Bootstrap
 - Jest
 - json
+- Github
 
-<p> This is a local project and needs to be downloaded/cloned inorder to view the functionalities. </p>
+<p> This is a local project that is not deployed to the cloud and needs to be downloaded/cloned in order to view the functionalities of the app. </p>
 
 ### Installation:
 
